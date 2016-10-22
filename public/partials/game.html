@@ -1,0 +1,49 @@
+<div class="container">
+    <h1>Game Board</h1>
+    <label>Game Name</label>
+
+    <ul display="inline">
+        <li>
+            <div class="form-group" style="max-width: 300px;">
+                <input type="button" class="btn btn-primary" ng-click="startGame()" value="Start"/>
+                <input type="button" class="btn btn-primary" ng-click="clear()" value="Clear"/>
+                <input type="button" class="btn btn-primary" ng-click="delete()" value="Delete"/>
+                <input type="text" placeholder="GAME_NAME" class="form-control" ng-model="game.name"/>
+                <label>Game Status</label>
+                <input type="text" placeholder="GAME_STATUS" class="form-control" ng-model="game.status"/>
+                <label>Winning Color</label>
+                <input type="text" placeholder="No Winner" class="form-control" ng-model="game.winningColor"/>
+                <label>Current Turn Color</label>
+                <input type="text" placeholder="White" class="form-control" ng-model="currentMove.color"/>
+            </div>
+        </li>
+        <li>
+            <h1>Move</h1>
+            <input type="button" class="btn btn-primary" ng-click="submitTurn()" value="Turn"/>
+            <input type="button" class="btn btn-primary" ng-click="refresh()" value="Refresh"/>
+            <div class="form-group" style="max-width: 300px;">
+                <input type="number" placeholder="Move X" class="form-control" min="0" max="6" ng-model="currentMove.x"/>
+                <input type="number" placeholder="Move Y" class="form-control" min="0" max="6" ng-model="currentMove.y"/>
+                <label>Choose your action:
+                    <select ng-model="currentMove.action" ng-options="option.name for option in actionOptions"></select>
+                </label><br/>
+                <label >Choose your push Direction:
+                    <select ng-model="currentMove.direction" ng-options="option.name for option in directionOptions"></select>
+                </label><br/>
+            </div>
+        </li>
+    </ul>
+    <!--
+    <table  class='table table-bordered' style="max-width: 300px;">
+        <tr ng-repeat='row in board' style='table-layout:fixed'>
+            <td ng-repeat='tower in row' style='table-layout:fixed'>
+                <div>
+                    <span ng-bind="tower.display"></span>
+                </div>
+            </td>
+        </tr>
+    </table>
+    -->
+    <canvas width="850" height="700" id="isoBoard"></canvas>
+
+</div>

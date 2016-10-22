@@ -1,0 +1,21 @@
+nav.navbar.navbar-default
+    .container-fluid
+        .navbar-header
+            a.navbar-brand(href='#/') Towers
+        ul.nav.navbar-nav
+            li.active
+                a(href='#/') Home
+            li
+                a(href='#/games') Games
+            if (!isAuthenticated)
+                li
+                    a(href='#/login') Login
+                li
+                    a(href='#/register') Register
+            else
+                li
+                    a(href='#/player') Profile
+                li
+                    a(href='/user/logout') Logout
+            li
+                a(href='#/about') About

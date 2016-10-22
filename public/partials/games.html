@@ -1,0 +1,15 @@
+<div class="container">
+    <h1>Games</h1>
+    <form style="max-width: 500px;">
+        <div class="form-group">
+            <label>Game Name</label>
+            <input type="text" placeholder="Game Name" class="form-control" ng-model="game.gameName"/>
+        </div>
+        <input type="button" class="btn btn-primary" value="Create Game" ng-click="save()"></input>
+    </form>
+    <div class="list-group" style="max-width: 500px;">
+        <a ng-repeat="game in games" ng-click="selectGame(game)" class="list-group-item">
+            <div>{{game.name}} is {{game.status}}</div>
+        </a>
+    </div>
+</div>
